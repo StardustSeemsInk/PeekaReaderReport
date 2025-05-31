@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.tauri.app/config/2.0.0",
+  "productName": "ReaderReport",
+  "version": "0.0.0",
+  "identifier": "com.readingreport.dev",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "读书报告分析工具",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["deb", "appimage", "msi", "app", "dmg"],
+    "icon": [
+      "icons/favicon.ico",
+      "icons/favicon-32x32.png",
+      "icons/android-chrome-192x192.png"
+    ],
+    "resources": [
+      "python/**/*"
+    ]
+  }
+}

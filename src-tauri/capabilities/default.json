@@ -1,0 +1,16 @@
+{
+  "identifier": "main-capability",
+  "description": "基础权限组，用于访问文件系统、对话框和执行命令",
+  "local": true,
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:path:default",
+    "core:resources:default",
+    "core:window:default",
+    "core:webview:default",
+    "core:app:default",
+    "dialog:default"
+  ],
+  "platforms": ["macOS", "windows", "linux"]
+}
