@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>读书报告分析工具</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/modern.css">
+    <link rel="stylesheet" href="styles/charts.css">
+    <link rel="stylesheet" href="styles/rust-results.css">
+    <script type="text/javascript" src="https://unpkg.com/@tauri-apps/api@next/dist/index.iife.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@tauri-apps/plugin-dialog@next/dist/index.iife.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>读书报告分析工具</h1>
-        <div id="fileSelector"></div>
-        <div id="analysisControl"></div>
-        <div id="resultDisplay"></div>
+        <div class="header">
+            <h1>🚀 现代化读书报告分析工具</h1>
+            <p class="header-subtitle">基于Rust引擎，提供强大的数据分析和可视化功能</p>
+        </div>
+        
+        <div id="fileSelector" class="section"></div>
+        <div id="analysisControl" class="section"></div>
+        <div id="resultDisplay" class="section"></div>
     </div>
 
-    <script src="main.js"></script>
+    <script src="components/InteractiveCharts.js"></script>
+    <script src="components/ChartGenerator.js"></script>
+    <script src="main_rust.js"></script>
 </body>
 </html>

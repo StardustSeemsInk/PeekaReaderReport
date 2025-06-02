@@ -1,0 +1,598 @@
+/* 现代化样式 - ReaderReport 2.0 */
+
+/* 全局重置和基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #2c3e50;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* 头部样式 */
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: clamp(2em, 5vw, 3.5em);
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #ffffff, #f0f0f0, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+    font-size: clamp(1em, 2.5vw, 1.3em);
+    opacity: 0.95;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* 现代化文件选择器 */
+.modern-file-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.file-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.file-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.file-section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.file-section-header {
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.file-section-header h3 {
+    color: #2c3e50;
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.file-hint {
+    color: #7f8c8d;
+    font-size: 0.95em;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.modern-file-button {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 18px 24px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-file-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.modern-file-button:hover::before {
+    left: 100%;
+}
+
+.modern-file-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+}
+
+.modern-file-button:active {
+    transform: translateY(0);
+}
+
+.button-icon {
+    font-size: 1.3em;
+}
+
+.button-text {
+    font-weight: 600;
+}
+
+/* 文件列表样式 */
+.file-list.modern {
+    margin-top: 24px;
+    max-height: 240px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.file-list.modern::-webkit-scrollbar {
+    width: 6px;
+}
+
+.file-list.modern::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.file-list.modern::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 3px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.file-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    transition: width 0.3s ease;
+}
+
+.file-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.file-item:hover::before {
+    width: 100%;
+}
+
+.file-icon {
+    font-size: 1.4em;
+    color: #667eea;
+    z-index: 2;
+    position: relative;
+}
+
+.file-name {
+    font-weight: 600;
+    color: #2c3e50;
+    flex: 1;
+    z-index: 2;
+    position: relative;
+}
+
+.file-path {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 2;
+    position: relative;
+}
+
+/* 现代化分析控制器 */
+.modern-analysis-control {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 48px;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-analysis-control::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.modern-analyze-button {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    padding: 24px 48px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 12px 30px rgba(40, 167, 69, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto;
+    min-width: 320px;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.modern-analyze-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.modern-analyze-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.modern-analyze-button:hover::after {
+    left: 100%;
+}
+
+.modern-analyze-button:hover:not(:disabled) {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 45px rgba(40, 167, 69, 0.4);
+}
+
+.modern-analyze-button:active:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.modern-analyze-button:disabled {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 6px 20px rgba(149, 165, 166, 0.2);
+}
+
+.button-text {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.button-engine {
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* 进度条样式 */
+.modern-progress-container {
+    margin-top: 32px;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.progress-wrapper {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 16px;
+    background: rgba(233, 236, 239, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #20c997, #17a2b8, #6f42c1);
+    background-size: 200% 100%;
+    border-radius: 8px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    width: 0%;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-text {
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.progress-percent {
+    color: #667eea;
+    font-weight: 800;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* 结果容器 */
+.results-content {
+    margin-top: 40px;
+    min-height: 200px;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .modern-file-selector {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .file-section {
+        padding: 24px;
+        border-radius: 20px;
+    }
+    
+    .modern-analysis-control {
+        padding: 32px 24px;
+        border-radius: 20px;
+    }
+    
+    .modern-analyze-button {
+        min-width: 280px;
+        padding: 20px 32px;
+        font-size: 16px;
+    }
+    
+    .file-path {
+        display: none;
+    }
+    
+    .header h1 {
+        font-size: 2.5em;
+    }
+    
+    .header-subtitle {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .file-section {
+        padding: 20px;
+        border-radius: 16px;
+    }
+    
+    .modern-analysis-control {
+        padding: 24px 16px;
+        border-radius: 16px;
+    }
+    
+    .modern-analyze-button {
+        min-width: 100%;
+        padding: 18px 24px;
+        font-size: 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .button-engine {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    
+    .section {
+        margin-bottom: 24px;
+    }
+}
+
+/* 兼容性和增强效果 */
+@supports not (backdrop-filter: blur(20px)) {
+    .file-section,
+    .modern-analysis-control {
+        background: rgba(255, 255, 255, 0.98);
+    }
+    
+    .progress-wrapper {
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    }
+    
+    .file-section,
+    .modern-analysis-control {
+        background: rgba(52, 73, 94, 0.95);
+        color: #ecf0f1;
+    }
+    
+    .file-section-header h3,
+    .file-name {
+        color: #ecf0f1;
+    }
+    
+    .progress-text {
+        color: #ecf0f1;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .file-section,
+    .modern-analysis-control {
+        border: 2px solid #000;
+    }
+    
+    .modern-file-button,
+    .modern-analyze-button {
+        border: 2px solid #000;
+    }
+}
+
+/* 减少动画偏好 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

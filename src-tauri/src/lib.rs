@@ -1,5 +1,6 @@
-mod python_analyzer;
 mod commands;
+mod rust_analyzer_simple;
+mod rust_analyzer;
 
 use commands::AppState;
 
@@ -10,14 +11,13 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .manage(AppState::default())
         .invoke_handler(tauri::generate_handler![
-            commands::initialize_analyzer,
-            commands::analyze_files,
-            commands::generate_charts,
-            commands::export_report,
-            commands::get_file_count,
-            commands::get_file_name,
-            commands::analyze_single_file,
-            commands::export_reports_for_all_files
+            // 纯Rust版本命令
+            commands::rust_analyze_files,
+            commands::rust_analyze_single_file,
+            commands::rust_get_file_count,
+            commands::rust_get_file_name,
+            commands::rust_get_reader_files,
+            commands::rust_export_reports_for_all_files
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

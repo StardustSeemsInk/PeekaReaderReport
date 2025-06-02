@@ -1,4 +1,4 @@
-# 读书报告分析工具重构实施计划
+# 读书报告分析工具重构实施计划v1.0（已完成，当前任务为把Python分析逻辑迁移到rust，详见python_ti_rust_migration_plan.md）
 
 ## 📋 项目概览
 
